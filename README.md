@@ -8,3 +8,4 @@ This repository contains the code for the Summary and Subtitles App using Vertex
 To run the backend for the app, follow these steps:
 - use the command `cd backend` to navigate to the backend directory
 - run the command 'flask --app server run' to start the Flask server
+
