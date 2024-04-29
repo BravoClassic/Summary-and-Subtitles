@@ -6,13 +6,17 @@ const FormComponent = () => {
   const [Url, setUrl] = useState('');
   const [selection, setSelection] = useState('summary');
   const [responseText, setResponseText] = useState('');
+  const [fileDisabled, setFileDisabled] = useState(false);
+  const [urlDisabled, setUrlDisabled] = useState(false);
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
+    setUrlDisabled(true);
   };
 
   const handleUrlChange = (event) => {
     setUrl(event.target.value);
+    setFileDisabled(true);
   };
 
   const handleSelectionChange = (event) => {
@@ -44,9 +48,9 @@ const FormComponent = () => {
     <div>
       <form onSubmit={handleSubmit}>
         <div class="input-box">
-            <input id='file' type="file" onChange={handleFileChange} />
+            <input id='file' type="file" onChange={handleFileChange} disabled={fileDisabled} />
         </div>
-        <input type="text" className='formbold-form-input' value={Url} onChange={handleUrlChange} placeholder="YouTube Video URl" />
+        <input type="text" className='formbold-form-input' value={Url} onChange={handleUrlChange} placeholder="YouTube Video URl" disabled={urlDisabled} />
         <div>
           <input
             type="radio"
