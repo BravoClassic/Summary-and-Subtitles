@@ -1,26 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import FormComponent from './components/Form';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import { Container } from 'reactstrap';
 
-function App() {
-  const [established, establish] = useState(0);
-
-  useEffect(() => {
-    fetch('/').then(res => res.json()).then(data => {
-      establish("Hello World!");
-    });
-  }, []);
-
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-
-        ... no changes in this part ...
-
-        <p>{established}</p>
-      </header>
-    </div>
+    <Container>
+      <Header />
+      <main>
+        <FormComponent />
+      </main>
+      <Footer />
+    </Container>
   );
-}
+};
 
 export default App;
