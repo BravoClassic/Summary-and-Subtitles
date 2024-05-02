@@ -3,20 +3,11 @@ import axios from 'axios';
 
 const FormComponent = () => {
   const [file, setFile] = useState(null);
-  const [Url, setUrl] = useState('');
   const [selection, setSelection] = useState('summary');
   const [responseText, setResponseText] = useState('');
-  const [fileDisabled, setFileDisabled] = useState(false);
-  const [urlDisabled, setUrlDisabled] = useState(false);
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
-    setUrlDisabled(true);
-  };
-
-  const handleUrlChange = (event) => {
-    setUrl(event.target.value);
-    setFileDisabled(true);
   };
 
   const handleSelectionChange = (event) => {
@@ -28,16 +19,15 @@ const FormComponent = () => {
 
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('Url', Url);
     formData.append('selection', selection);
 
     try {
-      const response = await axios.post("http://localhost:5000/" + selection, formData, {
+      const response = await axios.post("http://10.25.10.186:5000/" + selection, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       });
-
+      console.log(response);
       setResponseText(response.data.message);
     } catch (error) {
       console.error('Error uploading file:', error);
@@ -47,10 +37,10 @@ const FormComponent = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div class="input-box">
-            <input id='file' type="file" onChange={handleFileChange} disabled={fileDisabled} />
+        <label htmlFor="file" className="formbold-form-label text-center w-100 small">Select Your Audio File</label>
+        <div className="input-box">
+            <input id='file' type="file" accept="audio/*" onChange={handleFileChange} />
         </div>
-        <input type="text" className='formbold-form-input' value={Url} onChange={handleUrlChange} placeholder="YouTube Video URl" disabled={urlDisabled} />
         <div>
           <input
             type="radio"
