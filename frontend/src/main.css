@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  background: #ddd5c6;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  header {
+    text-align: center;
+    margin-bottom: 20px;
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      a.navbar-brand{
+        margin: 0 10px;
+        font-weight: 600;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        span.pri {
+          color: #f36512;
+          font-size: 2.5em;
+        }
+        span.sec{
+          color: #000;
+          font-size: 1.8rem;
+          margin-top: -1.3rem;
+        }
+      }
+    }
+  }
+  main{
+    min-height: 75vh;
+    padding: 1.5rem 0;
+    form {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: .3rem;
+      padding: 1rem;
+      /* file input */
+      .input-box {
+        padding: 20px;
+        display: grid;
+        place-items: center;
+        border: 2px dashed #cacaca;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        cursor: pointer;
+        margin: 10px 0;
+      }
+
+      /* url input */
+      .formbold-form-input {
+        width: 100%;
+        padding: 12px 24px;
+        border-radius: 6px;
+        border: 1px solid #e0e0e0;
+        background: white;
+        font-weight: 500;
+        font-size: 16px;
+        color: #6b7280;
+        outline: none;
+        resize: none;
+        margin: 10px 0;
+      }
+      .formbold-form-input:focus {
+        border-color: #f36512;
+        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+      }
+      div{
+        padding: 20px 0;
+        display: flex;
+        justify-content: center;
+        column-gap: 20px;
+        [type="radio"]:checked,
+        [type="radio"]:not(:checked) {
+            position: absolute;
+            left: -9999px;
+        }
+        [type="radio"]:checked + label,
+        [type="radio"]:not(:checked) + label
+        {
+            position: relative;
+            padding-left: 28px;
+            cursor: pointer;
+            line-height: 20px;
+            display: inline-block;
+            color: #666;
+        }
+        [type="radio"]:checked + label:before,
+        [type="radio"]:not(:checked) + label:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            border: 1px solid #ddd;
+            border-radius: 100%;
+            background: #fff;
+        }
+        [type="radio"]:checked + label:after,
+        [type="radio"]:not(:checked) + label:after {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: #f36512;
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            border-radius: 100%;
+            -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+        }
+        [type="radio"]:not(:checked) + label:after {
+            opacity: 0;
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+        [type="radio"]:checked + label:after {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+      }
+      .formbold-btn {
+        text-align: center;
+        font-size: 16px;
+        border-radius: 6px;
+        padding: 14px 32px;
+        border: none;
+        font-weight: 600;
+        background-color: #f36512;
+        color: white;
+        cursor: pointer;
+      }
+      .formbold-btn:hover {
+        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+      }
+    }
+  }
+}
