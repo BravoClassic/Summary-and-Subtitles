@@ -4,9 +4,7 @@ import { Navbar, NavbarBrand } from 'reactstrap';
 const Header = () => {
   return (
     <header>
-        <Navbar
-        className="py-2"
-        >
+        <Navbar className="py-2">
           <NavbarBrand href="/">
             <span className='pri'>Summary</span>
             <span className='sec'>& Subtitles</span>
