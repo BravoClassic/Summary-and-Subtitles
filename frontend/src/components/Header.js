@@ -11,7 +11,6 @@ const Header = () => {
           </NavbarBrand>
         </Navbar>
     </header>
-    
   );
 };
 
