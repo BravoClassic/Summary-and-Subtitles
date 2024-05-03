@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+
+[project]
+name = "summary-and-subtitles-app"
+version = "0.1.0"
+description = "A short description of your project"
+authors = ["Gerald Akorli <your.email@example.com>"]
+license = "MIT"
+readme = "README.md"
+
+[project.urls]
+homepage = "https://yourprojecthomepage.com"
+documentation = "https://yourprojectdocs.com"
+repository = "https://github.com/yourusername/yourproject"
+issue_tracker = "https://github.com/yourusername/yourproject/issues"
+
+[project.scripts]
+start = "python server.py"
+
+[project.dependencies]
+flask = "^1.1.2"
+flask-cors = "^3.0.10"
+python-dotenv = "^0.19.1"
+werkzeug = "^2.0.2"
+google-generativeai = "^1.0" # Replace with the correct version
+
+[project.dev-dependencies]
+pytest = "^6.2.2"
