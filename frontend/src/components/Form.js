@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import ReactMarkdown from 'react-markdown';
 
 const FormComponent = () => {
   const [file, setFile] = useState(null);
@@ -20,17 +21,17 @@ const FormComponent = () => {
     const formData = new FormData();
     formData.append('file', file);
     formData.append('selection', selection);
-
+    setResponseText('Uploading and Processing Audio File...');
     try {
       const response = await axios.post("http://10.25.10.186:5000/" + selection, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       });
-      console.log(response);
-      setResponseText(response.data.message);
+      setResponseText(response.data);
     } catch (error) {
-      console.error('Error uploading file:', error);
+      console.log(error);
+      setResponseText(error.error);
     }
   };
 
@@ -63,7 +64,7 @@ const FormComponent = () => {
         </div>
         <button className='formbold-btn w-100' type="submit">Upload</button>
       </form>
-      {responseText && <p> {selection} {responseText}</p>}
+      <div className='response'> <ReactMarkdown children={responseText} /></div>
     </div>
   );
 };
