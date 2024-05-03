@@ -53,7 +53,7 @@ def generate_summary():
         prompt = "Listen carefully to the following audio file. Provide a brief summary."
         model = genai.GenerativeModel('models/gemini-1.5-pro-latest')
         response = model.generate_content([prompt, audio]) # Here we generate the summary using the model and the audio file
-        return {"summary": response.text}
+        return response.text
     except Exception as e:
         return {"error": str(e)}
     
@@ -76,7 +76,7 @@ def generate_subtitles():
         prompt = "Listen carefully to the following audio file. Provide the subtitle for the audio."
         model = genai.GenerativeModel('models/gemini-1.5-pro-latest')
         response = model.generate_content([prompt, audio]) # Here we generate the summary using the model and the audio file
-        return {"summary": response.text}
+        return response.text
     except Exception as e:
         return {"error": str(e)}
 
